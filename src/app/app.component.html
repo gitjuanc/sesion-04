@@ -10,6 +10,17 @@
 
 <span style="font-size: 50px;">pais: {{paisitem}}</span>
 
-<br/><br/><br/>
+<br/>
+<br/>
+<br/>
+
+<li *ngIf="paisimp">
+  <h1>
+    Pais: {{paisimp.name}}
+  </h1>
+  <h1>
+    Descripcion: {{paisimp.description}}
+  </h1>
+</li>
 
 <router-outlet></router-outlet>
