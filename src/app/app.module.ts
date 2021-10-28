@@ -6,11 +6,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { PersonajesHPComponent } from './personajes-hp/personajes-hp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    PersonajesHPComponent
   ],
   imports: [
     BrowserModule,
