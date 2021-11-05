@@ -1,43 +1,32 @@
-import { Component } from '@angular/core';
-import { BuscarpaisService } from './buscarpais.service';
-import { HarrypoterService } from './harrypoter.service';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  constructor(
-    //public servicio: BuscarpaisService;
-    public servicioHarry: HarrypoterService
-    ){
+  title = 'Rx JS';
+  actoreslista:any =[];
+
+  constructor(private http: HttpClient){
     
   }
-  
-  title = 'actividad03';
 
-  //paisitem:any='';
-  //paisimp:any='';
-  //paises:any =[];
-    personajes:any =[];
-    personajeitem:any='';
-    personajeimp:any='';
+  ngOnInit(){
+    this.http.get('http://hp-api.herokuapp.com/api/characters/staff')
+    .pipe(
+      map( (item:any) => item.filter( (el:any) => el.gender === 'male')),
+    )
+    .subscribe(item =>{
+      console.warn(item);
+      this.actoreslista = item;
 
-  //public imprimirenpantalla(pais:string){
-    //this.paisitem=pais;
-    //this.paises=this.servicio.getpaises();
-    //const busqueda = this.servicio.getdata(pais, this.paises);
-    //this.paisimp=busqueda;
-  //}
-  public exponerpersonajes(){
-    this.personajes=this.servicioHarry.exponerpersonajes();
-  }
-
-  public buscarpersonaje(buscarpersonaje:string){
-    const busqueda = this.servicioHarry.buscarpersonaje(buscarpersonaje);
-    this.personajeimp=busqueda;
+    });
+    
   }
 
 }

@@ -1,55 +1,16 @@
-<!--<h1>
+<h1 style="text-align: center; color: blue;">
   Bienvendio a: {{title}}
 </h1>
-
-<app-buscador (escuchador)="imprimirenpantalla($event)"></app-buscador>
-
 <br/>
 
-<span style="font-size: 50px;">pais: {{paisitem}}</span>
+<h2>Lista de actores</h2>
 
-<br/>
-<br/>
-<br/>
+<ul>
+  <li *ngFor="let item of actoreslista">
+    {{item.name}} ({{item.house}})
+    <br/>
+    <img srcset="{{item.image}}">
+  </li>
+</ul>
 
-<li *ngIf="paisimp">
-  <h1>
-    Pais: {{paisimp.name}}
-  </h1>
-  <h1>
-    Descripcion: {{paisimp.description}}
-  </h1>
-</li>-->
-
-<h1 style="text-align: center; color: blue;">
-  Bienvendio la: {{title}}
-</h1>
-
-<h2 style="text-align: left ; color: black;">
-  PERSONAJES DE HARRY POTER
-</h2>
-<button (click)="exponerpersonajes()">EXPONER PERSONAJES</button>
-
-<li *ngFor="let item of personajes">
-  {{item.name}}
-</li>
-
-<br/>
-
-<app-personajes-hp (escuchador)="buscarpersonaje($event)"></app-personajes-hp>
-
-<br/>
-
-<li *ngIf="personajeimp">
-  <h1>
-    Pais: {{personajeimp.name}}
-  </h1>
-  <h1>
-    Genero: {{personajeimp.gender}}
-  </h1>
-  <h1>
-    Casa: {{personajeimp.house}}
-  </h1>
-</li>
-
-<router-outlet></router-outlet>
+<br/><br/>

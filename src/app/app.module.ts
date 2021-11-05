@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { PersonajesHPComponent } from './personajes-hp/personajes-hp.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import { PersonajesHPComponent } from './personajes-hp/personajes-hp.component';
     AppRoutingModule,
     FormsModule,
     CommonModule,
+    //importacion de modulo HttpClient
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
